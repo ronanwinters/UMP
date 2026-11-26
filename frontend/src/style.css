@@ -1,0 +1,5 @@
+/* Matches the maintenance page / landing page look. */
+:root { --bg: #fdf9f9; --panel: #fff; --ink: #333; --muted: #777; --line: #e0dada; --accent: #A03232;
+        --ok: #2e7d4f; --warn: #b26a00; --err: #A03232; --off: #9aa3ab; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }

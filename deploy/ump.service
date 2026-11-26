@@ -1,0 +1,23 @@
+# /etc/systemd/system/ump.service  (Dart)
+#
+#   useradd -r -s /sbin/nologin ump
+#   install the repo at /opt/ump, venv at /opt/ump/backend/.venv
+#   systemctl enable --now ump
+
+[Unit]
+Description=Unified Maintenance Panel (FastAPI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ump
+Group=ump
+WorkingDirectory=/opt/ump/backend
+Environment=UMP_SERVERS_FILE=/etc/ump/servers.yml
+Environment=UMP_POLL_SECONDS=120
+ExecStart=/opt/ump/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

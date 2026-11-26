@@ -1,0 +1,42 @@
+# Servers the panel watches. One entry per host.
+#
+#   name        short label shown in the UI
+#   zone        grouping only
+#   url         the server's public HTTPS base
+#   status_url  where that server publishes its status JSON
+#               (today: /serverinfo.json written by server_info.py on Frost;
+#                later: a richer /_status.json on every server)
+#
+# Hosts without a status_url are shown as "not reporting" rather than errors.
+
+servers:
+  - name: Frost
+    zone: Corebridge
+    role: Snapshots & dev
+    url: https://crbg-frost.radleypropertysolutions.com
+    status_url: https://crbg-frost.radleypropertysolutions.com/serverinfo.json
+
+  - name: Kilo
+    zone: Corebridge
+    role: Production (AMPROD)
+    url: https://crbg-kilo.radleypropertysolutions.com
+
+  - name: Tango
+    zone: Corebridge
+    role: Analytics
+    url: https://crbg-tango.radleypropertysolutions.com
+
+  - name: Bolt
+    zone: General
+    role: Production
+    url: https://bolt.radleypropertysolutions.com
+
+  - name: Swift
+    zone: General
+    role: QA
+    url: https://swift.radleypropertysolutions.com
+
+  - name: Dart
+    zone: General
+    role: Development
+    url: https://dart.radleypropertysolutions.com
